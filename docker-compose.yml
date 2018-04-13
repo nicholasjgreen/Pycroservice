@@ -1,0 +1,21 @@
+version: '2'
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  rabbitmq:
+    image: 'bitnami/rabbitmq:latest'
+    networks:
+      - app-tier
+
+  cassandra:
+    image: 'bitnami/cassandra:latest'
+    networks:
+      - app-tier
+    ports:
+      - '7000:7000'
+      - '7001:7001'
+      - '9042:9042'
+      - '9160:9160'

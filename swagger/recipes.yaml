@@ -1,0 +1,42 @@
+swagger: '2.0'
+info:
+  title: Hello API
+  version: "0.1"
+paths:
+  /greeting:
+    get:
+      operationId: api.greeting.say_hello
+      summary: Returns a greeting.
+      parameters:
+        - name: name
+          in: query
+          type: string
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Message greeting
+  /recipes/:
+    get:
+      operationId: api.recipes.get_recipes
+      summary: Retrieves a list of recipes
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Recipe'
+
+definitions:
+  Recipe:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
