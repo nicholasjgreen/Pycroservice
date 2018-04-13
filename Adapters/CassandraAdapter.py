@@ -12,3 +12,11 @@ def get_cassandra_session():
 def get_recipes(session):
     return session.execute("SELECT id, name FROM recipes")
 
+
+def insert_recipe(session, id, name):
+    session.execute(
+        """
+        INSERT INTO recipes (id, name)
+        VALUES (%s, %s)
+        """,
+        (id, name))

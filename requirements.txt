@@ -4,3 +4,4 @@ Flask-Injector
 fastavro
 nameko
 cassandra-driver
+pika
