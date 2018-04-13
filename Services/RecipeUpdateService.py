@@ -23,3 +23,6 @@ def process_incoming(ch, method, properties, body):
     # Parse the JSON
     recipe = json.loads(body)
     CassandraAdapter.insert_recipe(CASS_SESSION, uuid.UUID(recipe["id"]), recipe["name"])
+
+    # Remove from the queue
+    ch.basic_ack(delivery_tag=method.delivery_tag)
