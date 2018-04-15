@@ -1,8 +1,8 @@
-import src.Adapters.CassandraAdapter
+import Adapters.CassandraAdapter
 
 def get_recipes():
-    session = src.Adapters.CassandraAdapter.get_cassandra_session()
-    rows = src.Adapters.CassandraAdapter.get_recipes(session)
+    session = Adapters.CassandraAdapter.get_cassandra_session()
+    rows = Adapters.CassandraAdapter.get_recipes(session)
     recipes = []
     for row in rows:
         recipes.append({"id": row.id, "name": row.name})

@@ -1,5 +1,5 @@
-from src.Adapters import RabbitmqAdapter
-from src.Services import RecipeUpdateService
+from Adapters import RabbitmqAdapter
+from Services import RecipeUpdateService
 import uuid
 
 def create_recipe(recipe):

@@ -1,6 +1,6 @@
-from src.Adapters import RabbitmqAdapter
-from src.Services import RecipeUpdateService
-from src.Adapters import CassandraAdapter
+from Adapters import RabbitmqAdapter
+from Services import RecipeUpdateService
+from Adapters import CassandraAdapter
 
 print("Connecting to RabbitMQ")
 conn = RabbitmqAdapter.get_connection()

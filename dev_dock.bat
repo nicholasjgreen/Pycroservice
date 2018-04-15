@@ -1,0 +1,1 @@
+docker run -ti -p8080:8080 -v c:/dev/pycroservice/src:/usr/src/app -w /usr/src/app mypy /bin/sh

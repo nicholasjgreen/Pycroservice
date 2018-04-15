@@ -1,12 +1,12 @@
-import src.Services.RecipeUpdateService
+import Services.RecipeUpdateService
 
 
 def init():
     print("Connecting to RabbitMQ")
-    conn = src.Adapters.RabbitmqAdapter.get_connection()
-    channel = src.Adapters.RabbitmqAdapter.get_channel(conn)
+    conn = Adapters.RabbitmqAdapter.get_connection()
+    channel = Adapters.RabbitmqAdapter.get_channel(conn)
     print("Creating queues")
-    channel.queue_declare(queue=src.Services.RecipeUpdateService.DEFAULT_QUEUE)
+    channel.queue_declare(queue=Services.RecipeUpdateService.DEFAULT_QUEUE)
 
 
 if __name__ == "__main__":
