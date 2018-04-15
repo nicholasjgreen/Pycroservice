@@ -5,6 +5,7 @@ DEFAULT_QUEUE = "RecipeUpdates"
 
 CASS_SESSION = None
 
+
 def listen_to_queue(channel, cass_session):
     print("Listening to queue {}".format(DEFAULT_QUEUE))
     global CASS_SESSION
