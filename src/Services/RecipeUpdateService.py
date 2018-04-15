@@ -1,5 +1,5 @@
 import json
-from Adapters import CassandraAdapter
+from src.Adapters import CassandraAdapter
 import uuid
 DEFAULT_QUEUE = "RecipeUpdates"
 

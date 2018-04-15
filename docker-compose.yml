@@ -5,6 +5,17 @@ networks:
     driver: bridge
 
 services:
+  web:
+    build: .
+    command: connexion run swagger/recipes.yaml -v --debug
+    depends_on:
+      - rabbitmq
+      - cassandra
+    volumes:
+      - ./src:/usr/src/app
+    ports:
+      - '5000:5000'
+
   rabbitmq:
     image: 'bitnami/rabbitmq:latest'
     networks:
@@ -22,3 +33,9 @@ services:
       - '7001:7001'
       - '9042:9042'
       - '9160:9160'
+
+#volumes:
+#  application_src:
+#    driver: host
+#    driver_opts:
+#      source: .\src
