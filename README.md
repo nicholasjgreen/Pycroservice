@@ -25,10 +25,10 @@ The downstream dependencies (Cassandra and RabbitMQ) are hosted in containers an
 docker-compose up
 ```
 
-To create the message queueus, cassandra key space and tables, use the following python scripts
+To create the message queues, cassandra key space and tables, use the following python scripts
 ```bash
-python setup/cass.py
-python setup/rabb.py
+python src/setup/cass.py
+python src/setup/rabb.py
 ```
 
 
@@ -48,5 +48,6 @@ You can then view the swagger UI at
 * DI
 * Unit tests
 * Resilience
+* Move connection settings into ENV
 
 

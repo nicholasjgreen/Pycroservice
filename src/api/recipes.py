@@ -1,5 +1,6 @@
 import Adapters.CassandraAdapter
 
+
 def get_recipes():
     session = Adapters.CassandraAdapter.get_cassandra_session()
     rows = Adapters.CassandraAdapter.get_recipes(session)

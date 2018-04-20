@@ -1,11 +1,16 @@
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
+import os
+
+
+def get_cassandra_cluster():
+    auth_provider = PlainTextAuthProvider(username='cassandra', password='cassandra')
+    cluster = Cluster([os.getenv('cass_hostname', 'localhost')], auth_provider=auth_provider)
+    return cluster
 
 
 def get_cassandra_session():
-    auth_provider = PlainTextAuthProvider(username='cassandra', password='cassandra')
-    cluster = Cluster(['cassandra'], auth_provider=auth_provider)
-    session = cluster.connect()
+    session = get_cassandra_cluster().connect()
     session.execute("USE Pycro")
     return session
 

@@ -7,7 +7,8 @@ networks:
 services:
 #  web:
 #    build: .
-#    command: connexion run swagger/recipes.yaml -v --debug
+    #command: connexion run swagger/recipes.yaml -v --debug
+#    command: /bin/sh
 #    depends_on:
 #      - rabbitmq
 #      - cassandra
@@ -15,6 +16,9 @@ services:
 #      - ./src:/usr/src/app
 #    ports:
 #      - '5000:5000'
+#      - '8080:8080'
+#    networks:
+#      - app-tier
 
   rabbitmq:
     image: 'bitnami/rabbitmq:latest'

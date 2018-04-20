@@ -1,15 +1,18 @@
 import uuid
 import glob
 import json
-
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
 
+import Adapters.CassandraAdapter
 
 def init():
-    print("Connecting to local cassandra...")
-    auth_provider = PlainTextAuthProvider(username='cassandra', password='cassandra')
-    cluster = Cluster(auth_provider=auth_provider)
+    #print("Connecting to local cassandra...")
+    #auth_provider = PlainTextAuthProvider(username='cassandra', password='cassandra')
+    # cluster = Cluster(auth_provider=auth_provider)
+    #cluster = Cluster(['pycroservice_cassandra_1'], auth_provider=auth_provider)
+    #session = cluster.connect()
+    cluster = Adapters.CassandraAdapter.get_cassandra_cluster()
     session = cluster.connect()
     print("Creating schemas")
     create_keyspace(session)

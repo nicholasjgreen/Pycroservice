@@ -1,3 +1,4 @@
+import Adapters.RabbitmqAdapter
 import Services.RecipeUpdateService
 
 
